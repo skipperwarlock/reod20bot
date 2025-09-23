@@ -30,40 +30,40 @@ load_dotenv()
 
 # Role-based champion aggression maps (2 = least aggressive, 19 = most aggressive).
 TOP_LANE_CHAMPIONS = {
-    "Aatrox": 17, "Camille": 17, "Cho'Gath": 10, "Darius": 17, "Dr. Mundo": 9, "Fiora": 17, "Garen": 12, "Gnar": 12,
-    "Illaoi": 14, "Irelia": 18, "Jax": 16, "Jayce": 16, "Kayle": 7, "Kennen": 13, "Kled": 20, "Malphite": 10, "Maokai": 9,
-    "Mordekaiser": 14, "Nasus": 9, "Ornn": 8, "Poppy": 10, "Quinn": 15, "Renekton": 17, "Riven": 18, "Rumble": 14,
-    "Sett": 15, "Shen": 8, "Singed": 14, "Sion": 9, "Teemo": 13, "Tryndamere": 18, "Urgot": 15, "Volibear": 14, "Yorick": 12,
-    "Teemo": 1
+    "Aatrox": 8, "Camille": 13, "Cho'Gath": 7, "Darius": 13, "Dr. Mundo": 4, "Fiora": 11, "Garen": 4, "Gnar": 16,
+    "Illaoi": 7, "Irelia": 14, "Jax": 13, "Jayce": 4, "Kayle": 3, "Kennen": 17, "Kled": 20, "Malphite": 17, "Maokai": 9,
+    "Mordekaiser": 8, "Nasus": 3, "Ornn": 14, "Poppy": 10, "Quinn": 3, "Renekton": 13, "Riven": 13, "Rumble": 8,
+    "Sett": 14, "Shen": 17, "Singed": 8, "Sion": 9, "Tryndamere": 7, "Urgot": 8, "Volibear": 14, "Yorick": 8,
+    "Teemo": 1, "Aurora": 2, "Vayne": 3, "Kalista": 4
 }
 
 SUPPORT_CHAMPIONS = {  # Typically supports in bot lane
-    "Alistar": 15, "Bard": 11, "Blitzcrank": 16, "Braum": 10, "Janna": 6, "Karma": 9, "Leona": 17, "Lulu": 7, "Morgana": 10,
-    "Nami": 8, "Nautilus": 16, "Pyke": 18, "Rakan": 14, "Rell": 15, "Renata Glasc": 10, "Sona": 5, "Soraka": 4,
-    "Tahm Kench": 9, "Taric": 6, "Thresh": 16, "Yuumi": 2, "Zilean": 7, "Zyra": 13, "Milio": 5, "Malphite": 20, "Teemo": 1
+    "Alistar": 15, "Bard": 11, "Blitzcrank": 14, "Braum": 10, "Janna": 3, "Karma": 3, "Leona": 17, "Lulu": 7, "Morgana": 13,
+    "Nami": 12, "Nautilus": 16, "Pyke": 11, "Rakan": 17, "Rell": 18, "Renata Glasc": 10, "Sona": 8, "Soraka": 4,
+    "Tahm Kench": 9, "Taric": 9, "Thresh": 16, "Yuumi": 2, "Zilean": 7, "Zyra": 9, "Milio": 5, "Malphite": 20, "Teemo": 1
 }
 
 JUNGLE_CHAMPIONS = {
-    "Amumu": 10, "Bel'Veth": 16, "Briar": 19, "Diana": 16, "Ekko": 15, "Elise": 17, "Evelynn": 17, "Fiddlesticks": 13,
-    "Gragas": 12, "Graves": 16, "Hecarim": 17, "Ivern": 2, "Jarvan IV": 16, "Jax": 16, "Karthus": 14, "Kayn": 17,
-    "Kindred": 16, "Kha'Zix": 18, "Lee Sin": 17, "Lillia": 13, "Maokai": 9, "Master Yi": 17, "Nidalee": 16,
-    "Nocturne": 16, "Nunu & Willump": 7, "Poppy": 9, "Rammus": 9, "Rek'Sai": 17, "Rengar": 18, "Sejuani": 10,
-    "Shaco": 18, "Skarner": 8, "Talon": 17, "Trundle": 12, "Udyr": 15, "Vi": 16, "Viego": 16, "Warwick": 14,
-    "Wukong": 15, "Xin Zhao": 15, "Zac": 9, "Teemo": 1, "Malphite": 20
+    "Amumu": 17, "Bel'Veth": 5, "Briar": 19, "Diana": 16, "Ekko": 8, "Elise": 11, "Evelynn": 8, "Fiddlesticks": 17,
+    "Gragas": 12, "Graves": 4, "Hecarim": 17, "Ivern": 2, "Jarvan IV": 16, "Jax": 13, "Karthus": 8, "Kayn": 14,
+    "Kindred": 2, "Kha'Zix": 14, "Lee Sin": 17, "Lillia": 13, "Maokai": 9, "Master Yi": 5, "Nidalee": 5,
+    "Nocturne": 16, "Nunu & Willump": 16, "Poppy": 10, "Rammus": 10, "Rek'Sai": 9, "Rengar": 11, "Sejuani": 16,
+    "Shaco": 3, "Skarner": 16, "Talon": 11, "Trundle": 8, "Udyr": 6, "Vi": 16, "Viego": 9, "Warwick": 14,
+    "Wukong": 15, "Xin Zhao": 9, "Zac": 17, "Teemo": 1, "Malphite": 20
 }
 
 ADC_CHAMPIONS = {
-    "Aphelios": 13, "Ashe": 10, "Caitlyn": 12, "Draven": 18, "Ezreal": 11, "Jhin": 12, "Jinx": 13, "Kai'Sa": 15,
-    "Kalista": 17, "Kog'Maw": 9, "Lucian": 20, "Miss Fortune": 12, "Nilah": 16, "Samira": 18, "Senna": 8,
-    "Sivir": 10, "Tristana": 16, "Twitch": 14, "Varus": 12, "Vayne": 15, "Xayah": 12, "Zeri": 15, "Teemo": 1
+    "Aphelios": 8, "Ashe": 18, "Caitlyn": 3, "Draven": 14, "Ezreal": 2, "Jhin": 12, "Jinx": 20, "Kai'Sa": 14,
+    "Kalista": 17, "Kog'Maw": 9, "Lucian": 14, "Miss Fortune": 8, "Nilah": 16, "Samira": 18, "Senna": 4,
+    "Sivir": 3, "Tristana": 16, "Twitch": 16, "Varus": 16, "Vayne": 8, "Xayah": 8, "Zeri": 15, "Teemo": 1
 }
 
 MID_LANE_CHAMPIONS = {
-    "Ahri": 12, "Akali": 17, "Anivia": 7, "Annie": 9, "Aurelion Sol": 9, "Azir": 12, "Cassiopeia": 14, "Corki": 11,
-    "Diana": 16, "Ekko": 15, "Fizz": 17, "Galio": 8, "Irelia": 17, "Jayce": 16, "Kassadin": 13, "Katarina": 17,
-    "LeBlanc": 16, "Lissandra": 10, "Lux": 9, "Malzahar": 8, "Neeko": 11, "Orianna": 10, "Qiyana": 18, "Ryze": 11,
-    "Seraphine": 6, "Sylas": 16, "Syndra": 12, "Taliyah": 12, "Talon": 17, "Twisted Fate": 10, "Veigar": 10,
-    "Vel'Koz": 10, "Viktor": 11, "Vladimir": 11, "Xerath": 10, "Yasuo": 17, "Yone": 17, "Zed": 18, "Ziggs": 10, "Zoe": 14,
+    "Ahri": 12, "Akali": 17, "Anivia": 11, "Annie": 18, "Aurelion Sol": 11, "Azir": 17, "Cassiopeia": 14, "Corki": 2,
+    "Diana": 16, "Ekko": 12, "Fizz": 17, "Galio": 14, "Irelia": 17, "Jayce": 4, "Kassadin": 12, "Katarina": 17,
+    "LeBlanc": 8, "Lissandra": 14, "Lux": 6, "Malzahar": 14, "Neeko": 17, "Orianna": 14, "Qiyana": 18, "Ryze": 11,
+    "Seraphine": 14, "Sylas": 16, "Syndra": 12, "Taliyah": 12, "Talon": 14, "Twisted Fate": 10, "Veigar": 11,
+    "Vel'Koz": 4, "Viktor": 6, "Vladimir": 7, "Xerath": 3, "Yasuo": 17, "Yone": 17, "Zed": 18, "Ziggs": 4, "Zoe": 8,
     "Teemo": 1, "Malphite": 20
 }
 
