@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0c7ac05f-a4e8-44fa-b375-43d1d8f47984" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/ReoD20Bot.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Aatrox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Ahri.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Akali.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Akshan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Alistar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Ambessa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Amumu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Anivia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Annie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Aphelios.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Ashe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/AurelionSol.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Aurora.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Azir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Bard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Belveth.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Blitzcrank.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Brand.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Braum.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Briar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Caitlyn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Camille.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Cassiopeia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Chogath.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Corki.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Darius.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Diana.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/DrMundo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Draven.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Ekko.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Elise.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Evelynn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Ezreal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Fiddlesticks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Fiora.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Fizz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Galio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Gangplank.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Garen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Gnar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Gragas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Graves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Gwen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Hecarim.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Heimerdinger.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Hwei.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Illaoi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Irelia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Ivern.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Janna.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/JarvanIV.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Jax.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Jayce.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Jhin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Jinx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/KSante.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Kaisa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Kalista.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Karma.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Karthus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Kassadin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Katarina.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Kayle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Kayn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Kennen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Khazix.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Kindred.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Kled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/KogMaw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Leblanc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/LeeSin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Leona.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Lillia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Lissandra.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Lucian.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Lulu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Lux.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Malphite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Malzahar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Maokai.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/MasterYi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Mel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Milio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/MissFortune.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/MonkeyKing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Mordekaiser.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Morgana.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Naafiri.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Nami.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Nasus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Nautilus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Neeko.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Nidalee.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Nilah.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Nocturne.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Nunu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Olaf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Orianna.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Ornn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Pantheon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Poppy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Pyke.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Qiyana.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Quinn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Rakan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Rammus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/RekSai.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Rell.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Renata.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Renekton.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Rengar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Riven.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Rumble.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Ryze.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Samira.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Sejuani.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Senna.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Seraphine.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Sett.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Shaco.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Shen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Shyvana.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Singed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Sion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Sivir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Skarner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Smolder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Sona.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Soraka.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Swain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Sylas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Syndra.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/TahmKench.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Taliyah.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Talon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Taric.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Teemo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Thresh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Tristana.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Trundle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Tryndamere.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/TwistedFate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Twitch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Udyr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Urgot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Varus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Vayne.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Veigar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Velkoz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Vex.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Vi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Viego.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Viktor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Vladimir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Volibear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Warwick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Xayah.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Xerath.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/XinZhao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Yasuo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Yone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Yorick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Yunara.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Yuumi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Zac.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Zed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Zeri.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Ziggs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Zilean.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Zoe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/champion_icons/Zyra.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="3358ONtpLKGZ1OdcAoyrBkOUmwS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/Sam/PycharmProjects/ReoD20Bot",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Sam\PycharmProjects\ReoD20Bot" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-PY-252.26199.168" />
+        <option value="bundled-python-sdk-b3d66beaba9a-c6efb3732140-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26199.168" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0c7ac05f-a4e8-44fa-b375-43d1d8f47984" name="Changes" comment="" />
+      <created>1758595540300</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1758595540300</updated>
+      <workItem from="1758595541404" duration="5652000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ReoD20Bot$main.coverage" NAME="main Coverage Results" MODIFIED="1758601076448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
