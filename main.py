@@ -184,19 +184,50 @@ def get_icon_path_for_champion(name: str) -> str | None:
 async def roll(interaction: discord.Interaction, role: app_commands.Choice[str] | None = None):
     roll_value = random.randint(1, 20)
 
-    # Determine the bucket for the rolled value
+    # Determine the bucket for the rolled value and pick a thematic line
     if roll_value == 1:
-        low, high, label = 1, 1, "You know you deserve this..."
+        low, high = 1, 1
+        labels = [
+            "Chuck Norris rolled a 1 once. The dice apologized. You? You get benched...",
+            "Worst roll I’ve ever seen. Total disaster. People are laughing, believe me.",
+            "That’s not a roll, that’s a cry for help. What’re you even doing here?",
+            "You know you deserve this...",
+            "Natural one. Congratulations. You’ve managed to weaponize incompetence.",
+            "Just dodge..."
+        ]
     elif 2 <= roll_value <= 4:
-        low, high, label = 2, 4, "Be nowhere near the enemy this game..."
+        low, high = 2, 4
+        labels = [
+            "Be nowhere near the enemy this game...",
+            "Get down! Stay out of sight till you can pump iron. — Arnold",
+            "Your best move? Pretend you’re furniture. Nobody attacks a chair.",
+            "Walk away from danger. Keep walking. In fact, don’t stop walking.",
+            "The best fight is the one you don't take. — Bruce"
+        ]
     elif 5 <= roll_value <= 9:
-        low, high, label = 5, 9, "You get some rope this game. Don't hang yourself with it..."
+        low, high = 5, 9
+        labels = [
+            "You get some rope this game. Don't hang yourself with it..",
+            "Light skirmishes only. If it bleeds, let your jungler kill it. — Arnold"
+        ]
     elif 10 <= roll_value <= 14:
-        low, high, label = 10, 14, "Your team is relying on you to make plays this game. Don't let them down..."
+        low, high = 10, 14
+        labels = [
+            "Your team is relying on you to make plays this game. Don't let them down...",
+        ]
     elif 15 <= roll_value <= 19:
-        low, high, label = 15, 19, "YOU ARE THE ENGAGE. BE THE ENGAGE."
+        low, high = 15, 19
+        labels = [
+            "YOU ARE THE ENGAGE. BE THE ENGAGE.",
+            "Get to the teamfight! You start it. Hasta la vista, backline. — Arnold",
+            "Ring the bell. You lead the charge. — Stallone"
+        ]
     else:  # roll_value == 20
-        low, high, label = 20, 20, "The team fights when you say they fight!"
+        low, high = 20, 20
+        labels = [
+            "The team fights when you say they fight!"
+        ]
+    label = random.choice(labels)
 
     # Choose the relevant maps based on the role argument
     role_value = role.value if role is not None else None
