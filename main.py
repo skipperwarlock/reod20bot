@@ -13,6 +13,7 @@ Notes:
   - Invite the bot with the applications.commands scope and permission to send messages.
 """
 from __future__ import annotations
+from dotenv import load_dotenv
 import os
 import random
 import sys
@@ -25,6 +26,7 @@ except Exception as e:
     raise
 
 from discord import app_commands
+load_dotenv()
 
 # Role-based champion aggression maps (2 = least aggressive, 19 = most aggressive).
 TOP_LANE_CHAMPIONS = {
