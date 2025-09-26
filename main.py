@@ -215,6 +215,170 @@ def get_user_stats(user_id: int) -> Dict[str, Any]:
         'recent_rolls': recent_rolls
     }
 
+def get_leaderboard_data(category: str, limit: int = 10) -> List[Dict[str, Any]]:
+    """Get leaderboard data for a specific category."""
+    conn = sqlite3.connect(DATABASE_PATH)
+    cursor = conn.cursor()
+    
+    if category == "total_rolls":
+        cursor.execute('''
+            SELECT user_id, username, COUNT(*) as count
+            FROM rolls 
+            GROUP BY user_id, username 
+            ORDER BY count DESC 
+            LIMIT ?
+        ''', (limit,))
+    elif category == "natural_20s":
+        cursor.execute('''
+            SELECT user_id, username, COUNT(*) as count
+            FROM rolls 
+            WHERE roll_value = 20
+            GROUP BY user_id, username 
+            ORDER BY count DESC 
+            LIMIT ?
+        ''', (limit,))
+    elif category == "natural_1s":
+        cursor.execute('''
+            SELECT user_id, username, COUNT(*) as count
+            FROM rolls 
+            WHERE roll_value = 1
+            GROUP BY user_id, username 
+            ORDER BY count DESC 
+            LIMIT ?
+        ''', (limit,))
+    elif category == "luckiest":
+        cursor.execute('''
+            SELECT user_id, username, 
+                   COUNT(CASE WHEN roll_value = 20 THEN 1 END) as nat_20s,
+                   COUNT(*) as total_rolls,
+                   ROUND(COUNT(CASE WHEN roll_value = 20 THEN 1 END) * 100.0 / COUNT(*), 2) as luck_percentage
+            FROM rolls 
+            GROUP BY user_id, username 
+            HAVING total_rolls >= 5
+            ORDER BY luck_percentage DESC, nat_20s DESC
+            LIMIT ?
+        ''', (limit,))
+    elif category == "unluckiest":
+        cursor.execute('''
+            SELECT user_id, username, 
+                   COUNT(CASE WHEN roll_value = 1 THEN 1 END) as nat_1s,
+                   COUNT(*) as total_rolls,
+                   ROUND(COUNT(CASE WHEN roll_value = 1 THEN 1 END) * 100.0 / COUNT(*), 2) as unluck_percentage
+            FROM rolls 
+            GROUP BY user_id, username 
+            HAVING total_rolls >= 5
+            ORDER BY unluck_percentage DESC, nat_1s DESC
+            LIMIT ?
+        ''', (limit,))
+    elif category == "highest_avg":
+        cursor.execute('''
+            SELECT user_id, username, 
+                   ROUND(AVG(roll_value), 2) as avg_roll,
+                   COUNT(*) as total_rolls
+            FROM rolls 
+            GROUP BY user_id, username 
+            HAVING total_rolls >= 5
+            ORDER BY avg_roll DESC, total_rolls DESC
+            LIMIT ?
+        ''', (limit,))
+    elif category == "most_active_today":
+        cursor.execute('''
+            SELECT user_id, username, COUNT(*) as count
+            FROM rolls 
+            WHERE DATE(timestamp) = DATE('now')
+            GROUP BY user_id, username 
+            ORDER BY count DESC 
+            LIMIT ?
+        ''', (limit,))
+    elif category == "most_active_week":
+        cursor.execute('''
+            SELECT user_id, username, COUNT(*) as count
+            FROM rolls 
+            WHERE timestamp >= datetime('now', '-7 days')
+            GROUP BY user_id, username 
+            ORDER BY count DESC 
+            LIMIT ?
+        ''', (limit,))
+    else:
+        conn.close()
+        return []
+    
+    results = cursor.fetchall()
+    conn.close()
+    
+    # Convert to list of dictionaries
+    leaderboard = []
+    for i, (user_id, username, *data) in enumerate(results, 1):
+        entry = {
+            'rank': i,
+            'user_id': user_id,
+            'username': username,
+            'data': data
+        }
+        leaderboard.append(entry)
+    
+    return leaderboard
+
+def get_user_rank(user_id: int, category: str) -> Optional[Dict[str, Any]]:
+    """Get a user's rank in a specific category."""
+    conn = sqlite3.connect(DATABASE_PATH)
+    cursor = conn.cursor()
+    
+    if category == "total_rolls":
+        cursor.execute('''
+            SELECT COUNT(*) + 1 as rank
+            FROM (
+                SELECT user_id, COUNT(*) as count
+                FROM rolls 
+                GROUP BY user_id
+                HAVING count > (
+                    SELECT COUNT(*) 
+                    FROM rolls 
+                    WHERE user_id = ?
+                )
+            )
+        ''', (user_id,))
+    elif category == "natural_20s":
+        cursor.execute('''
+            SELECT COUNT(*) + 1 as rank
+            FROM (
+                SELECT user_id, COUNT(*) as count
+                FROM rolls 
+                WHERE roll_value = 20
+                GROUP BY user_id
+                HAVING count > (
+                    SELECT COUNT(*) 
+                    FROM rolls 
+                    WHERE user_id = ? AND roll_value = 20
+                )
+            )
+        ''', (user_id,))
+    elif category == "luckiest":
+        cursor.execute('''
+            SELECT COUNT(*) + 1 as rank
+            FROM (
+                SELECT user_id, 
+                       ROUND(COUNT(CASE WHEN roll_value = 20 THEN 1 END) * 100.0 / COUNT(*), 2) as luck_percentage
+                FROM rolls 
+                GROUP BY user_id
+                HAVING COUNT(*) >= 5 AND luck_percentage > (
+                    SELECT ROUND(COUNT(CASE WHEN roll_value = 20 THEN 1 END) * 100.0 / COUNT(*), 2)
+                    FROM rolls 
+                    WHERE user_id = ?
+                )
+            )
+        ''', (user_id,))
+    else:
+        conn.close()
+        return None
+    
+    result = cursor.fetchone()
+    conn.close()
+    
+    if result:
+        return {'rank': result[0]}
+    return None
+
 def get_champion_info(champion_name: str) -> Optional[Dict[str, Any]]:
     """Get comprehensive information about a champion."""
     # Search for champion in all role dictionaries
@@ -644,6 +808,162 @@ async def stats(interaction: discord.Interaction):
     embed.set_footer(text=footer_text)
     
     await interaction.response.send_message(embed=embed)
+
+
+@tree.command(name="leaderboard", description="View leaderboards for various roll statistics.")
+@app_commands.describe(
+    category="Choose which leaderboard to view",
+    limit="Number of entries to show (1-25, default: 10)"
+)
+@app_commands.choices(category=[
+    app_commands.Choice(name="🏆 Total Rolls", value="total_rolls"),
+    app_commands.Choice(name="🎉 Natural 20s", value="natural_20s"),
+    app_commands.Choice(name="💀 Natural 1s", value="natural_1s"),
+    app_commands.Choice(name="🍀 Luckiest", value="luckiest"),
+    app_commands.Choice(name="😅 Unluckiest", value="unluckiest"),
+    app_commands.Choice(name="📊 Highest Average", value="highest_avg"),
+    app_commands.Choice(name="📅 Most Active Today", value="most_active_today"),
+    app_commands.Choice(name="📆 Most Active This Week", value="most_active_week"),
+])
+async def leaderboard(interaction: discord.Interaction, category: app_commands.Choice[str], limit: int = 10):
+    """Show leaderboard for various statistics."""
+    # Validate limit
+    if limit < 1 or limit > 25:
+        embed = discord.Embed(
+            title="❌ Invalid Limit",
+            description="Limit must be between 1 and 25.",
+            color=0xff0000
+        )
+        await interaction.response.send_message(embed=embed)
+        return
+    
+    # Get leaderboard data
+    leaderboard_data = get_leaderboard_data(category.value, limit)
+    
+    if not leaderboard_data:
+        embed = discord.Embed(
+            title="📊 Leaderboard",
+            description=f"No data available for **{category.name}** yet.\n\nStart rolling to see leaderboards!",
+            color=0x808080
+        )
+        await interaction.response.send_message(embed=embed)
+        return
+    
+    # Determine embed color based on category
+    color_map = {
+        "total_rolls": 0x7289da,      # Discord blue
+        "natural_20s": 0x00ff00,       # Green
+        "natural_1s": 0xff0000,        # Red
+        "luckiest": 0xffd700,          # Gold
+        "unluckiest": 0x808080,        # Gray
+        "highest_avg": 0x9932cc,       # Purple
+        "most_active_today": 0xff8c00, # Orange
+        "most_active_week": 0x00bfff   # Deep sky blue
+    }
+    color = color_map.get(category.value, 0x7289da)
+    
+    # Create embed
+    embed = discord.Embed(
+        title=f"🏆 {category.name} Leaderboard",
+        description=f"Top {len(leaderboard_data)} players",
+        color=color,
+        timestamp=datetime.now()
+    )
+    
+    # Build leaderboard text
+    leaderboard_text = ""
+    for entry in leaderboard_data:
+        rank = entry['rank']
+        username = entry['username']
+        data = entry['data']
+        
+        # Add rank emoji
+        if rank == 1:
+            rank_emoji = "🥇"
+        elif rank == 2:
+            rank_emoji = "🥈"
+        elif rank == 3:
+            rank_emoji = "🥉"
+        else:
+            rank_emoji = f"**{rank}.**"
+        
+        # Format data based on category
+        if category.value == "total_rolls":
+            value_text = f"{data[0]} rolls"
+        elif category.value == "natural_20s":
+            value_text = f"{data[0]} natural 20s"
+        elif category.value == "natural_1s":
+            value_text = f"{data[0]} natural 1s"
+        elif category.value == "luckiest":
+            nat_20s, total_rolls, luck_percentage = data
+            value_text = f"{luck_percentage}% ({nat_20s}/{total_rolls})"
+        elif category.value == "unluckiest":
+            nat_1s, total_rolls, unluck_percentage = data
+            value_text = f"{unluck_percentage}% ({nat_1s}/{total_rolls})"
+        elif category.value == "highest_avg":
+            avg_roll, total_rolls = data
+            value_text = f"{avg_roll} avg ({total_rolls} rolls)"
+        elif category.value in ["most_active_today", "most_active_week"]:
+            value_text = f"{data[0]} rolls"
+        else:
+            value_text = str(data[0])
+        
+        leaderboard_text += f"{rank_emoji} **{username}** - {value_text}\n"
+    
+    embed.add_field(
+        name="📊 Rankings",
+        value=leaderboard_text,
+        inline=False
+    )
+    
+    # Add user's rank if they have data
+    user_rank = get_user_rank(interaction.user.id, category.value)
+    if user_rank:
+        embed.add_field(
+            name="🎯 Your Rank",
+            value=f"You are ranked **#{user_rank['rank']}** in this category!",
+            inline=False
+        )
+    
+    # Add footer with helpful info
+    footer_text = ""
+    if category.value == "luckiest":
+        footer_text = "🍀 Based on natural 20 percentage (minimum 5 rolls)"
+    elif category.value == "unluckiest":
+        footer_text = "😅 Based on natural 1 percentage (minimum 5 rolls)"
+    elif category.value == "highest_avg":
+        footer_text = "📊 Based on average roll value (minimum 5 rolls)"
+    elif category.value == "most_active_today":
+        footer_text = "📅 Rolls made today"
+    elif category.value == "most_active_week":
+        footer_text = "📆 Rolls made in the last 7 days"
+    else:
+        footer_text = "🎲 Keep rolling to climb the leaderboard!"
+    
+    embed.set_footer(text=footer_text)
+    
+    await interaction.response.send_message(embed=embed)
+
+
+@tree.command(name="lb", description="Quick access to leaderboards (alias for /leaderboard).")
+@app_commands.describe(
+    category="Choose which leaderboard to view",
+    limit="Number of entries to show (1-25, default: 10)"
+)
+@app_commands.choices(category=[
+    app_commands.Choice(name="🏆 Total Rolls", value="total_rolls"),
+    app_commands.Choice(name="🎉 Natural 20s", value="natural_20s"),
+    app_commands.Choice(name="💀 Natural 1s", value="natural_1s"),
+    app_commands.Choice(name="🍀 Luckiest", value="luckiest"),
+    app_commands.Choice(name="😅 Unluckiest", value="unluckiest"),
+    app_commands.Choice(name="📊 Highest Average", value="highest_avg"),
+    app_commands.Choice(name="📅 Most Active Today", value="most_active_today"),
+    app_commands.Choice(name="📆 Most Active This Week", value="most_active_week"),
+])
+async def lb(interaction: discord.Interaction, category: app_commands.Choice[str], limit: int = 10):
+    """Quick access to leaderboards."""
+    # Reuse the leaderboard logic
+    await leaderboard.callback(interaction, category, limit)
 
 
 @tree.command(name="champion", description="Get detailed information about a specific champion.")
