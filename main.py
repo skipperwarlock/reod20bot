@@ -394,7 +394,6 @@ async def roll(interaction: discord.Interaction, role: app_commands.Choice[str] 
     names_list = sorted(names)
     if names_list:
         picked = random.choice(names_list)
-        msg = f"Rolled {roll_value} — {scope} champion: {picked}\n{label}"
         
         # Log the roll to database
         log_roll(
@@ -405,14 +404,95 @@ async def roll(interaction: discord.Interaction, role: app_commands.Choice[str] 
             champion=picked
         )
         
+        # Determine embed color based on roll value
+        if roll_value == 20:
+            color = 0x00ff00  # Green for natural 20
+        elif roll_value == 1:
+            color = 0xff0000  # Red for natural 1
+        elif roll_value >= 15:
+            color = 0xff8c00  # Orange for high rolls
+        elif roll_value <= 5:
+            color = 0x87ceeb  # Light blue for low rolls
+        else:
+            color = 0x7289da  # Discord blue for average rolls
+        
+        # Create embed
+        embed = discord.Embed(
+            title=f"🎲 Rolled {roll_value}!",
+            description=f"**{scope.title()} Champion:** {picked}",
+            color=color
+        )
+        
+        # Add roll value with visual representation
+        roll_bar = "█" * (roll_value // 2) + "░" * (10 - roll_value // 2)
+        embed.add_field(
+            name="🎯 Roll Result",
+            value=f"**{roll_value}/20**\n`{roll_bar}`",
+            inline=True
+        )
+        
+        # Add role information if specified
+        if role_value:
+            role_emojis = {
+                "top": "🔝",
+                "jungle": "🌲",
+                "mid": "⚡",
+                "adc": "🏹",
+                "support": "🛡️"
+            }
+            role_emoji = role_emojis.get(role_value, "⚔️")
+            embed.add_field(
+                name="🎭 Role",
+                value=f"{role_emoji} **{role_value.title()}**",
+                inline=True
+            )
+        
+        # Add aggression level info
+        champion_info = get_champion_info(picked)
+        if champion_info:
+            aggression = champion_info['aggression']
+            aggression_percentage = (aggression / 20) * 100
+            
+            # Add aggression emoji
+            if aggression == 1:
+                aggression_emoji = "🛡️"
+            elif 2 <= aggression <= 4:
+                aggression_emoji = "🌱"
+            elif 5 <= aggression <= 9:
+                aggression_emoji = "⚖️"
+            elif 10 <= aggression <= 14:
+                aggression_emoji = "⚔️"
+            elif 15 <= aggression <= 19:
+                aggression_emoji = "🔥"
+            else:  # aggression == 20
+                aggression_emoji = "💥"
+            
+            embed.add_field(
+                name=f"{aggression_emoji} Aggression",
+                value=f"**{aggression}/20** ({aggression_percentage:.0f}%)",
+                inline=True
+            )
+        
+        # Add the thematic label
+        embed.add_field(
+            name="💬 Message",
+            value=f"*{label}*",
+            inline=False
+        )
+        
+        # Add footer with user info
+        embed.set_footer(text=f"Rolled by {interaction.user.display_name}")
+        
         # Try to attach the champion icon image if available
         icon_path = get_icon_path_for_champion(picked)
         if icon_path:
-            await interaction.response.send_message(msg, file=discord.File(icon_path))
+            embed.set_thumbnail(url="attachment://champion.png")
+            await interaction.response.send_message(embed=embed, file=discord.File(icon_path, filename="champion.png"))
+            return
+        else:
+            await interaction.response.send_message(embed=embed)
             return
     else:
-        msg = f"Rolled {roll_value} — No champions found in {scope} for this range."
-        
         # Log the roll even if no champion found
         log_roll(
             user_id=interaction.user.id,
@@ -421,8 +501,44 @@ async def roll(interaction: discord.Interaction, role: app_commands.Choice[str] 
             role=role_value,
             champion=None
         )
-
-    await interaction.response.send_message(msg)
+        
+        # Create embed for no champion found
+        embed = discord.Embed(
+            title=f"🎲 Rolled {roll_value}!",
+            description=f"No champions found in **{scope}** for this range.",
+            color=0x808080  # Gray for no results
+        )
+        
+        embed.add_field(
+            name="🎯 Roll Result",
+            value=f"**{roll_value}/20**",
+            inline=True
+        )
+        
+        if role_value:
+            role_emojis = {
+                "top": "🔝",
+                "jungle": "🌲",
+                "mid": "⚡",
+                "adc": "🏹",
+                "support": "🛡️"
+            }
+            role_emoji = role_emojis.get(role_value, "⚔️")
+            embed.add_field(
+                name="🎭 Role",
+                value=f"{role_emoji} **{role_value.title()}**",
+                inline=True
+            )
+        
+        embed.add_field(
+            name="💬 Message",
+            value=f"*{label}*",
+            inline=False
+        )
+        
+        embed.set_footer(text=f"Rolled by {interaction.user.display_name}")
+        
+        await interaction.response.send_message(embed=embed)
 
 
 @tree.command(name="stats", description="Show your roll statistics including total rolls, natural 20s, natural 1s, and recent rolls.")
